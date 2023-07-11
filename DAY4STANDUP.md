@@ -16,34 +16,58 @@
 git fetch origin
 git checkout dev
 ```
-**It may not make sense to branch today, I recognise that; but I wanted to learn how to do this properly** 
+**branching properly** 
+if making a new branch for the first time
 ```
-git checkout -b frontend  
 git checkout -b backend  
+git push -u origin backend
+```
+if the branch exists
+```
+git fetch origin
+git checkout dev/backend
 ```
 do commits while working
 ```
 git add -A
 git commit -m
 ```
+if working on both branches, to switch between
+```
+git add -A
+git commit -m "saving backend work"
+git checkout frontend
+```
 merge safely
 * frontend
 ```
-git pull origin dev
+git fetch origin
 git checkout dev
-git merge frontend  
-git push -u origin dev
+git merge origin/dev
+git merge frontend 
+git push origin dev
 ```
 * backend
 ```
-git pull origin dev
+git fetch origin
 git checkout dev
-git merge backend
-git push -u origin dev
+git merge origin/dev
+git merge backend 
+git push origin dev
+
 ```
 * end of day
 ```
 git fetch origin
 git checkout main
+git merge origin/main
 git merge dev
 git push origin main
+```
+* reverting to a previous commit, backend example
+```
+git log
+git checkout <commit-hash>
+git checkout dev/backend
+```
+

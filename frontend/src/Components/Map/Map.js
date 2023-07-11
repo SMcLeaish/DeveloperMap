@@ -6,11 +6,12 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import {Icon, divIcon} from "leaflet";
 import styled from 'styled-components';
-// import { AppContext } from '../../App';
+import { AppContext } from '../../App';
 
 
 export default function Map() {
-  // const markers = useContext(AppContext)
+  const markers = useContext(AppContext)
+  console.log(markers.geocode)
 
 
   const StyledPop = styled(Popup)`
@@ -25,69 +26,6 @@ export default function Map() {
   }
 `;
 
-// FAKE DATA
-  const markers = [
-    {
-      geocode: [39.0997, -94.5786],
-      popUp: 'Hello i am marker 1',
-      authorized: 10,
-    },
-    {
-      geocode: [39.0997, -94.5786],
-      popUp: 'Hello i am marker 1',
-      authorized: 10,
-    },
-    {
-      geocode: [39.0997, -94.5786],
-      popUp: 'Hello i am marker 1',
-      authorized: 10,
-    },
-    {
-      geocode: [39.0997, -94.5786],
-      popUp: 'Hello i am marker 1',
-      authorized: 10,
-    },
-    {
-      geocode: [39.0997, -94.5786],
-      popUp: 'Hello i am marker 1',
-      authorized: 10,
-    },
-    {
-      geocode: [39.0997, -94.5786],
-      popUp: 'Hello i am marker 1',
-      authorized: 10,
-    },
-    {
-      geocode: [39.0997, -94.5786],
-      popUp: 'Hello i am marker 1',
-      authorized: 10,
-    },
-    {
-      geocode: [39.0994, -94.40],
-      popUp: 'Hello i am marker 1',
-      authorized: 10,
-    },
-    {
-      geocode: [39.0994, -94.40],
-      popUp: 'Hello i am marker 1',
-      authorized: 10,
-    },
-    {
-      geocode: [31.0994, -94.40],
-      popUp: 'Hello i am marker 1',
-      authorized: 10,
-    },
-    {
-      geocode: [31.0994, -94.40],
-      popUp: 'Hello i am marker 1',
-      authorized: 10,
-    },
-    {
-      geocode: [31.0994, -94.40],
-      popUp: 'Hello i am marker 1',
-      authorized: 10,
-    },
-  ]
 
 
 
@@ -103,9 +41,6 @@ const createCustomClusterIcon = (cluster) => {
   return new divIcon({
     html: `<div class='cluster-icon'>${cluster.getChildCount()}</div`,
     className: 'custom-marker-cluster',
-
-    // iconUrl: require('./img/group.png'),
-    // iconSize: [33, 33]
 
   });
 }
@@ -125,7 +60,7 @@ const createCustomClusterIcon = (cluster) => {
             chunkedLoading 
             iconCreateFunction={createCustomClusterIcon}>
               {markers.map(marker => (
-                <Marker position={marker.geocode} icon={customIcon}>
+                <Marker position={JSON.parse(marker.geocode)} icon={customIcon}>
                   <StyledPop>{marker.popUp}
                   <div>
                     <img

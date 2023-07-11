@@ -98,21 +98,35 @@ function Admin() {
   const [ searchText, setSearchText ] = useState("")
   const [ data, setData ] = useState([])
   const [ username, setName ] = useState('')
-  const [ userbase, setBase ] = useState('')
+  const [ userGeocode, setGeocode ] = useState('')
+  const [ userClearance, setClearance ] = useState('')
+  const [ userArrivedOnStation, setArrivedOnStation ] = useState('')
+  const [ userBase, setBase ] = useState('')
+  const [ userCoder, setCoder ] = useState('')
+  const [ userCivilian, setUserCivilian ] = useState('')
+  const [ userRank, setRank ] = useState('')
+  const [ userEmail, setEmail ] = useState('')
 
   const markers = useContext(AppContext)
 
 
   const handleSubmit = (e) => {
     // e.preventDefault();
-    const AdminUpdate = { username, userbase};
+    const AdminUpdate = { username, userBase};
     console.log(AdminUpdate);
   }
 
   const AllData = (markers) => {
     setData(markers)
     setName(markers.name)
-    setBase(markers.base)
+    setGeocode(markers.geocode)
+    setClearance(markers.clearance)
+    setArrivedOnStation(markers.arrived_on_station)
+    setBase(markers.installation_id)
+    setCoder(markers.has_skill_identifier)
+    setUserCivilian(markers.is_civilian)
+    setRank(markers.rank)
+    setEmail(markers.email)
 
   }
 
@@ -159,7 +173,7 @@ function Admin() {
                             <label> Base </label> 
                             <input
                               type='text'
-                              value={userbase}
+                              value={userBase}
                               onChange={(e) => setBase(e.target.value)}
                               />
                       </form>

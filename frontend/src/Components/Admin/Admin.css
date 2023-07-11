@@ -111,10 +111,10 @@
 
 
 .FormHeader {
+    width: auto;
+    height: 8vw;
     display: flex;
-    justify-content: space-between;
     background-color: blue;
-    margin-bottom: 30%;
     padding-left: 1%;
     color: white;
   }
@@ -139,10 +139,20 @@
 .FormDetails {
     display: flex;
     flex-direction: column;
-    padding-left: 20%;
+    padding-left: 10%;
     height: 100%;
     overflow-x: scroll;
+    justify-content: space-between;
+    padding-top: 1%;
 }
+
+#myForm {
+    display: flex;
+    flex-direction: grid;
+    margin-bottom: 30%;
+    padding-right: 1%;
+}
+
 .Footer {
     display: flex;
     justify-content: space-around;

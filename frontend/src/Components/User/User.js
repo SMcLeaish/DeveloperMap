@@ -38,6 +38,11 @@ export default function User() {
                       <p className='pstyle'>Clearance: {marker.clearance}</p>
                       <p className='pstyle'>arrived_on_station: {marker.arrived_on_station}</p>
                       <p className='pstyle'>Base: {marker.installation_id}</p>
+                      <p className='pstyle'>Coder?: {marker.i ? true : false}</p>
+                      <p className='pstyle'>Civilian?: {marker.is_civilian}</p>
+                      <p className='pstyle'>Rank: {marker.rank}</p>
+                      <p className='pstyle'>Email: {marker.email}</p>
+
                     </div>
                     ))}
           </div>
